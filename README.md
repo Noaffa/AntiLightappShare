@@ -9,7 +9,8 @@
 ## 配置文件内容如下：
 
 
-```mainSwitch: true
+```
+mainSwitch: true
 targetGroup: 
   1234567: true
   2345678: true
