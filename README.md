@@ -28,3 +28,9 @@ otherGroupTurnOn是对targetGroup没有设置的其他群的控制
 replyXml是是否启用xml卡片的开关，由于SimpleServiceMessage并不稳定，可能不久就会失效，算是玩具吧  
 masterQQid是管理人的QQ号，通过getFriend发送解析json失败的消息给管理人  
 debugMode是debug信息的开关  
+
+对配置文件的设置要在没有运行的情况下修改
+
+## 相关：  
+[mirai](https://github.com/mamoe/mirai)  
+[mirai-console](https://github.com/mamoe/mirai-console)
