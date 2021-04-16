@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.yorin"
-version = "0.9.3"
+version = "0.10.4"
 
 repositories {
     mavenCentral()

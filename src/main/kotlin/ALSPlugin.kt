@@ -12,7 +12,7 @@ object AntiLightappShare:KotlinPlugin(
     JvmPluginDescription(
         id = "org.yorin.anti-lightappshare",
         name = "AntiLightappShare",
-        version = "0.9.3"
+        version = "0.10.4"
     )
 ){
     override fun onEnable() {
@@ -34,7 +34,7 @@ object AntiLightappShare:KotlinPlugin(
                     try {
                         if(ConfigStore.debugMode)logger.info("获取到b站小程序转发信息，开始拆分")
                         val jsonData = Gson().fromJson(gotRawData,MiniAppJsonData::class.java)
-                        if(jsonData.app!="com.tencent.miniapp_01"||jsonData.desc!="哔哩哔哩"){
+                        if(jsonData.app!="com.tencent.miniapp_01"||jsonData.meta.detail_1.appid!="1109937557"){
                             if(ConfigStore.debugMode)logger.warning("json解析结果非b站小程序分享")
                             return@subscribeAlways
                         }

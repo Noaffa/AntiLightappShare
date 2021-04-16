@@ -9,6 +9,7 @@ data class MetaData(
     var detail_1:MetaData_detail_1Data
 )
 data class MetaData_detail_1Data(
+    var appid:String,
     var desc:String,
     var icon:String,
     var preview:String,
