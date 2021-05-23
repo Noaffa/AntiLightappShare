@@ -18,7 +18,7 @@ groupRule:
   xxxxxxxx: true
 ```
 
-##要有chat-command插件才能在群里使用命令
+##要有[chat-command](https://github.com/project-mirai/chat-command)插件才能在群里使用命令
 
 ## 命令：  
 ```
