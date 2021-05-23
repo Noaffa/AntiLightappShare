@@ -18,9 +18,7 @@ groupRule:
   xxxxxxxx: true
 ```
 
-## 要有[chat-command](https://github.com/project-mirai/chat-command)插件才能在群里使用命令
-
-## 命令：  
+## 命令(要有[chat-command](https://github.com/project-mirai/chat-command)插件才能在群里使用命令)：  
 ```
 /als disable
 /als 禁用
@@ -35,8 +33,6 @@ groupRule:
 ## 相关：  
 [chat-command](https://github.com/project-mirai/chat-command)
 
-
 [mirai-console](https://github.com/mamoe/mirai-console)
-
 
 [mirai](https://github.com/mamoe/mirai)  
