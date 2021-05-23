@@ -1,3 +1,5 @@
+package com.yorin
+
 import net.mamoe.mirai.alsoLogin
 import net.mamoe.mirai.console.MiraiConsole
 import net.mamoe.mirai.console.plugin.PluginManager.INSTANCE.enable
@@ -10,7 +12,7 @@ suspend fun main(){
     AntiLightappShare.enable();
 
 
-    val bot = MiraiConsole.addBot(123456789,"nya"){
+    val bot = MiraiConsole.addBot(123456789,"nyaa"){
         fileBasedDeviceInfo();
     }.alsoLogin();
 
