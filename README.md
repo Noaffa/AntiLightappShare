@@ -13,9 +13,9 @@ enable: true
 reportQQ: 0
 # 是否启用卡片式回复
 xmlCard: true
-# 群规则，如果不在规则里默认为启用
+# 群规则，在列表里为禁用
 groupRule: 
-  xxxxxxxx: true
+  - xxxxxxxxx
 ```
 
 ## 命令(要有[chat-command](https://github.com/project-mirai/chat-command)插件才能在群里使用命令)：  
