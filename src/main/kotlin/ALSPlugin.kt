@@ -21,7 +21,7 @@ object AntiLightappShare:KotlinPlugin(
     JvmPluginDescription(
         id = "org.yorin.anti-lightappshare",
         name = "AntiLightappShare",
-        version = "0.13.4"
+        version = "0.13.5"
     )
 ){
     @OptIn(MiraiExperimentalApi::class)
@@ -34,7 +34,7 @@ object AntiLightappShare:KotlinPlugin(
 
         globalEventChannel().subscribeAlways<GroupMessageEvent>{
             if(!ConfigStore.enable)return@subscribeAlways
-            if(ConfigStore.groupRule[group.id] == false)return@subscribeAlways
+            if(ConfigStore.disableGroupList.contains(group.id))return@subscribeAlways
             if(this.message.serializeToMiraiCode().startsWith("""[mirai:app""")){
                 val gotRawData=this.message.content
                 try {
@@ -72,9 +72,18 @@ object AntiLightappSettingCommand: CompositeCommand(
     private suspend fun setTargetGroup(commandSender: CommandSender, bool: Boolean) {
         val group=commandSender.getGroupOrNull()
         if (group != null) {
-            ConfigStore.groupRule[group.id]=bool
-            if(bool)group.sendMessage("启用本群小程序分享消息的解析")
-            else group.sendMessage("禁用本群小程序分享消息的解析")
+            if(bool){
+                if(!ConfigStore.disableGroupList.contains(group.id)){
+                    ConfigStore.disableGroupList.remove(group.id)
+                    group.sendMessage("启用本群小程序分享消息的解析")
+                }
+            }
+            else {
+                if(ConfigStore.disableGroupList.contains(group.id)){
+                    ConfigStore.disableGroupList.add(group.id)
+                    group.sendMessage("禁用本群小程序分享消息的解析")
+                }
+            }
         }
     }
 }

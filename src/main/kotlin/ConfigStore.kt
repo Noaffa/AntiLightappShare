@@ -11,6 +11,6 @@ object ConfigStore:AutoSavePluginConfig("AntiLightAppShare"){
     val reportQQ by value<Long>()
     @ValueDescription("是否启用卡片式回复")
     val xmlCard:Boolean by value(true)
-    @ValueDescription("群规则，如果不在规则里默认为启用")
-    val groupRule:MutableMap<Long,Boolean> by value()
+    @ValueDescription("群规则，在列表里为禁用")
+    val disableGroupList:MutableList<Long> by value()
 }
