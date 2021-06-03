@@ -21,7 +21,7 @@ object AntiLightappShare:KotlinPlugin(
     JvmPluginDescription(
         id = "org.yorin.anti-lightappshare",
         name = "AntiLightappShare",
-        version = "0.13.5"
+        version = "0.13.6"
     )
 ){
     @OptIn(MiraiExperimentalApi::class)
@@ -34,7 +34,7 @@ object AntiLightappShare:KotlinPlugin(
 
         globalEventChannel().subscribeAlways<GroupMessageEvent>{
             if(!ConfigStore.enable)return@subscribeAlways
-            if(ConfigStore.disableGroupList.contains(group.id))return@subscribeAlways
+            if(ConfigStore.disableGroupList.contains(group.id))return@subscribeAlways//如果在黑名单里 禁用
             if(this.message.serializeToMiraiCode().startsWith("""[mirai:app""")){
                 val gotRawData=this.message.content
                 try {
@@ -50,8 +50,8 @@ object AntiLightappShare:KotlinPlugin(
                         }
                     }
                 }catch (e:Exception){
-                    logger.error("Json解析失败")
-                    this.bot.getFriend(ConfigStore.reportQQ)?.sendMessage("[Error]群${this.group.name}(${this.group.id})的Json解析失败，原因[${e.message}]")
+                    logger.error("出错")
+                    this.bot.getFriend(ConfigStore.reportQQ)?.sendMessage("[Error]群${this.group.name}(${this.group.id})小程序出错，原因[${e.message}]")
                 }
             }
         }
